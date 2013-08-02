@@ -20,18 +20,20 @@ module OmniAuth
 
       info do
         {
-            :full_name    => raw_info['user']['fullName'],
-            :display_name => raw_info['user']['displayName'],
-            :nickname     => raw_info['user']['nickname'],
-            :gender       => raw_info['user']['gender'],
-            :about_me     => raw_info['user']['aboutMe'],
-            :city         => raw_info['user']['city'],
-            :state        => raw_info['user']['state'],
-            :country      => raw_info['user']['country'],
-            :dob          => !raw_info['user']['dateOfBirth'].empty? ? Date.strptime(raw_info['user']['dateOfBirth'], '%Y-%m-%d'):nil,
-            :member_since => Date.strptime(raw_info['user']['memberSince'], '%Y-%m-%d'),
-            :locale       => raw_info['user']['locale'],
-            :timezone     => raw_info['user']['timezone']
+            :full_name          => raw_info['user']['fullName'],
+            :display_name       => raw_info['user']['displayName'],
+            :nickname           => raw_info['user']['nickname'],
+            :gender             => raw_info['user']['gender'],
+            :about_me           => raw_info['user']['aboutMe'],
+            :city               => raw_info['user']['city'],
+            :state              => raw_info['user']['state'],
+            :country            => raw_info['user']['country'],
+            :dob                => !raw_info['user']['dateOfBirth'].empty? ? Date.strptime(raw_info['user']['dateOfBirth'], '%Y-%m-%d'):nil,
+            :member_since       => Date.strptime(raw_info['user']['memberSince'], '%Y-%m-%d'),
+            :locale             => raw_info['user']['locale'],
+            :timezone           => raw_info['user']['timezone']
+            :oauth_token        => access_token.params[:oauth_token],
+            :oauth_token_secret => access_token.params[:oauth_token_secret]
         }
       end
 
