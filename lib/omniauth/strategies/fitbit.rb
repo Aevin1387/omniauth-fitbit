@@ -31,7 +31,7 @@ module OmniAuth
             :dob                => !raw_info['user']['dateOfBirth'].empty? ? Date.strptime(raw_info['user']['dateOfBirth'], '%Y-%m-%d'):nil,
             :member_since       => Date.strptime(raw_info['user']['memberSince'], '%Y-%m-%d'),
             :locale             => raw_info['user']['locale'],
-            :timezone           => raw_info['user']['timezone']
+            :timezone           => raw_info['user']['timezone'],
             :oauth_token        => access_token.params[:oauth_token],
             :oauth_token_secret => access_token.params[:oauth_token_secret]
         }

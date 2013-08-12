@@ -37,6 +37,10 @@ describe "OmniAuth::Strategies::Fitbit" do
 
   context 'info' do
     before :each do
+      access_token = double('access_token')
+      access_token.stub('params') { { 'encoded_user_id' => '123ABC' } }
+      subject.stub(:access_token) { access_token }
+
       subject.stub(:raw_info) {
         {
           "user" =>
@@ -93,6 +97,10 @@ describe "OmniAuth::Strategies::Fitbit" do
 
   context 'dateOfBirth is empty' do
     before :each do
+      access_token = double('access_token')
+      access_token.stub('params') { { 'encoded_user_id' => '123ABC' } }
+      subject.stub(:access_token) { access_token }
+
       subject.stub(:raw_info) {
         {
           "user" =>
